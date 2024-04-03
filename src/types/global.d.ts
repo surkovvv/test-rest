@@ -2,37 +2,53 @@ export {};
 
 declare global {
 	interface CommentPost {
-		_id: string;
+		id: string;
 		text: string;
-		author?: User;
+		createdAt: string;
+		user?: User;
 		post?: Post;
-		updated_at?: string;
-		created_at?: string;
 	}
 
 	interface Post {
-		image: string;
-		likes: string[];
-		comments: CommentPost[];
-		tags: string[];
-		isPublished?: boolean;
-		_id: string;
+		images: string;
+		description: string;
+		id: string;
 		title: string;
-		author: User;
-		text: string;
-		created_at?: string;
-		updated_at?: string;
-		__v?: number;
+		body: string;
+		createdAt: string;
+		updatedAt?: string;
+		slug: string;
+		isPublished: boolean;
+		tags: string[];
+		favoritesCount: number;
+		favorites?: FavoriteUser[];
+		comments?: CommentPost[];
+		author?: User;
+		userId?: string;
 	}
 
 	interface User {
+		id: string;
+		email: string;
 		name: string;
 		about: string;
-		avatar: string;
-		_id: string;
-		email: string;
-		__v?: number;
-		group?: string;
+		avatarPath: string;
+		phone: string;
+		roles: string[];
+		favoritesPost: FavoritesPost[];
+	}
+
+	interface FavoriteUser {
+		id: string;
+		userId: string;
+		postId: string;
+		user: User;
+	}
+	interface FavoritesPost {
+		id: string;
+		userId: string;
+		postId: string;
+		post: Post;
 	}
 
 	type PostLikeParam = {

@@ -1,6 +1,6 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './components/app';
+import App from './app';
 import './global.css';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
